@@ -1,6 +1,7 @@
 package com.lixinxinlove.notelove.controller;
 
 import com.lixinxinlove.notelove.dataobject.UserDO;
+import com.lixinxinlove.notelove.response.CommonReturnType;
 import com.lixinxinlove.notelove.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,20 +20,20 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
-    public UserDO login(@RequestParam(name = "phone") String phone, @RequestParam(name = "password") String password) {
+    public CommonReturnType login(@RequestParam(name = "phone") String phone, @RequestParam(name = "password") String password) {
 
         UserDO userDO = userService.login(phone, password);
 
-        if (userDO!=null){
+        if (userDO != null) {
             System.out.println(userDO.toString());
-        }else {
+        } else {
             System.out.println("没有用户");
         }
 
-
-
-        return userDO;
+        if (userDO != null) {
+            return CommonReturnType.create(userDO);
+        } else {
+            return CommonReturnType.error(userDO);
+        }
     }
-
-
 }
