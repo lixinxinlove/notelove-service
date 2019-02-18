@@ -50,7 +50,7 @@
         <!--selectByExampleQueryId="false"></table>-->
 
 
-        <table tableName="tb_user" domainObjectName="UserDO"
+        <table tableName="tb_note" domainObjectName="NoteDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
