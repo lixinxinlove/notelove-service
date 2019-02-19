@@ -21,8 +21,14 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public int saveNoteList(List<NoteDO> noteDOList) {
-        return 0;
+    public int saveNoteList(List<NoteDO> noteDOList, Integer userId) {
+
+        for (NoteDO noteDO : noteDOList) {
+            noteDO.setStatus(1);
+            noteDO.setUserId(userId);
+            noteDOMapper.insertSelective(noteDO);
+        }
+        return 1;
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface NoteService {
 
     int saveNote(NoteDO noteDO);
 
-    int saveNoteList(List<NoteDO> noteDOList);
+    int saveNoteList(List<NoteDO> noteDOList,Integer userId);
 
     NoteDO getNote(Integer id);
 
