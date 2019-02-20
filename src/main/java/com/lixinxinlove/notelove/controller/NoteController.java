@@ -27,10 +27,29 @@ public class NoteController {
         //TODO 修改信息
 
         Gson gson = new Gson();
-        List<NoteDO> noteDOList = gson.fromJson(notes, new TypeToken<List<NoteDO>>() {}.getType());
+        List<NoteDO> noteDOList = gson.fromJson(notes, new TypeToken<List<NoteDO>>() {
+        }.getType());
 
         System.out.println("保存数据");
         int i = noteService.saveNoteList(noteDOList, userId);
+        if (i > 0) {
+            return CommonReturnType.create(1);
+        } else {
+            return CommonReturnType.error(0);
+        }
+    }
+
+
+    @RequestMapping(value = "/update", method = {RequestMethod.POST}, consumes = {"application/json", CONTENT_TYPE_FORMED})
+    public CommonReturnType update(@RequestParam(name = "notes") String notes, @RequestParam(name = "userId") Integer userId) {
+        //TODO 修改信息
+
+        Gson gson = new Gson();
+        List<NoteDO> noteDOList = gson.fromJson(notes, new TypeToken<List<NoteDO>>() {
+        }.getType());
+
+        System.out.println("跟新");
+        int i = noteService.updateNoteList(noteDOList, userId);
         if (i > 0) {
             return CommonReturnType.create(1);
         } else {

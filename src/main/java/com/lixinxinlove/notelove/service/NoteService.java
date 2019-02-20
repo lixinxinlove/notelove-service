@@ -19,4 +19,7 @@ public interface NoteService {
 
     int updateNote(NoteDO noteDO);
 
+
+    int updateNoteList(List<NoteDO> noteDOList,Integer userId);
+
 }

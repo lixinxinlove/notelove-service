@@ -26,7 +26,7 @@ public class NoteServiceImpl implements NoteService {
         for (NoteDO noteDO : noteDOList) {
             noteDO.setStatus(1);
             noteDO.setUserId(userId);
-            noteDOMapper.insertSelective(noteDO);
+            noteDOMapper.insert(noteDO);
         }
         return 1;
     }
@@ -49,5 +49,15 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public int updateNote(NoteDO noteDO) {
         return 0;
+    }
+
+    @Override
+    public int updateNoteList(List<NoteDO> noteDOList, Integer userId) {
+        for (NoteDO noteDO : noteDOList) {
+            noteDO.setStatus(1);
+            noteDO.setUserId(userId);
+            noteDOMapper.updateByPrimaryKey(noteDO);
+        }
+        return 1;
     }
 }
