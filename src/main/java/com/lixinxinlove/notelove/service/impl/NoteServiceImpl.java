@@ -56,7 +56,7 @@ public class NoteServiceImpl implements NoteService {
         for (NoteDO noteDO : noteDOList) {
             noteDO.setStatus(1);
             noteDO.setUserId(userId);
-            noteDOMapper.updateByPrimaryKey(noteDO);
+            noteDOMapper.updateByPrimaryKeySelective(noteDO);
         }
         return 1;
     }
