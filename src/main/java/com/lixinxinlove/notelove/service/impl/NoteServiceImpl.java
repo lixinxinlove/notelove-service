@@ -38,7 +38,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<NoteDO> getNoteList(Integer userId) {
-        return null;
+        return noteDOMapper.selectByUserId(userId);
     }
 
     @Override
