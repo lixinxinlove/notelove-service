@@ -57,4 +57,15 @@ public class NoteController {
         }
     }
 
+
+    @RequestMapping(value = "/list", method = {RequestMethod.GET})
+    public CommonReturnType noteList(@RequestParam(name = "userId") Integer userId) {
+        List<NoteDO> noteDOList = noteService.getNoteList(userId);
+        if (noteDOList.size() > 0) {
+            return CommonReturnType.create(noteDOList);
+        } else {
+            return CommonReturnType.error(0);
+        }
+    }
+
 }

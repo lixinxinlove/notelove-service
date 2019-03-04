@@ -15,7 +15,7 @@ public class CommonReturnType {
         commonReturnType = new CommonReturnType();
         commonReturnType.setData(data);
         commonReturnType.setStatus("success");
-        commonReturnType.setCode(1000);
+        commonReturnType.setCode(1001);
         return commonReturnType;
     }
 
