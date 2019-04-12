@@ -33,7 +33,7 @@ public class UserController {
         if (userDO != null) {
             return CommonReturnType.create(userDO);
         } else {
-            return CommonReturnType.error(userDO);
+            return CommonReturnType.error(null);
         }
     }
 }
