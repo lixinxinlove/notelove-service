@@ -2,7 +2,6 @@ package com.lixinxinlove.notelove.service;
 
 
 import com.lixinxinlove.notelove.dataobject.UserDO;
-import org.springframework.stereotype.Service;
 
 /**
  * 用户操作返回数据
@@ -12,5 +11,7 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
     UserDO login(String phone, String password);
+
+    UserDO register(String phone, String password);
 
 }

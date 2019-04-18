@@ -36,4 +36,25 @@ public class UserController {
             return CommonReturnType.error(null);
         }
     }
+
+
+    @RequestMapping(value = "/register", method = {RequestMethod.POST})
+    public CommonReturnType register(@RequestParam(name = "phone") String phone, @RequestParam(name = "password") String password) {
+
+        UserDO userDO = userService.register(phone, password);
+
+        if (userDO != null) {
+            System.out.println(userDO.toString());
+        } else {
+            System.out.println("没有用户");
+        }
+
+        if (userDO != null) {
+            //新用户
+            return CommonReturnType.create(userDO);
+        } else {
+            //用户已经重在
+            return CommonReturnType.error("有该用户");
+        }
+    }
 }
