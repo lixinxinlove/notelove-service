@@ -13,6 +13,8 @@ public interface NoteDOMapper {
 
     NoteDO selectByPrimaryKey(Integer id);
 
+    NoteDO selectByKey(Integer id);
+
     List<NoteDO> selectByUserId(Integer userId);
 
     int updateByPrimaryKeySelective(NoteDO record);

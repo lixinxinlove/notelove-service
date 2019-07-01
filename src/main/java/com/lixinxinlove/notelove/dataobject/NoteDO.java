@@ -17,6 +17,8 @@ public class NoteDO {
 
     private Integer status;
 
+    private Boolean flag;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,28 @@ public class NoteDO {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
+    }
+
+    @Override
+    public String toString() {
+        return "NoteDO{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", theme=" + theme +
+                ", info='" + info + '\'' +
+                ", time=" + time +
+                ", editTime=" + editTime +
+                ", status=" + status +
+                ", flag=" + flag +
+                '}';
     }
 }
